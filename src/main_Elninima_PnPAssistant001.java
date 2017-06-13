@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 
 import net.miginfocom.swing.MigLayout;
 
+//Bare Bone of Elninima_PnPAssistant, Version 001
 public class main_Elninima_PnPAssistant001
 {
 	
