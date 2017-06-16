@@ -91,43 +91,44 @@ public class newLogin_Elninima_PnPAssistant001 extends JFrame
 			@Override
 			public void actionPerformed(final ActionEvent e)
 			{
-				//TODO write Submit check and create new Login Data
 				final Properties prop = new Properties();
 				OutputStream output = null;
 				
-				try
-				{
-					
-					output = new FileOutputStream("config.properties");
-					
-					// set the properties value
-					if (Arrays.equals(newLogin_Elninima_PnPAssistant001.this.passwordField.getPassword(), newLogin_Elninima_PnPAssistant001.this.passwordField_1.getPassword()))
+				// set the properties value
+				//TODO check online for username collision (when sql database is working)
+				if (Arrays.equals(newLogin_Elninima_PnPAssistant001.this.passwordField.getPassword(), newLogin_Elninima_PnPAssistant001.this.passwordField_1.getPassword()))
+					/*the config file is declared in here and not outside so  we can use the Username for the file Name. 
+					 * This should help minimize confusions or miss uses of different config files.
+					 * Further data concerning a Player (Settings, Games, Friends...) should be written in this file.
+					 * This should make it possible to share config files without renaming them.
+					 * At some point we need to separate config and save files. But now we will only use one file*/
+					try
 					{
+						output = new FileOutputStream(newLogin_Elninima_PnPAssistant001.this.textField.getText() + "_config.properties");
 						prop.setProperty("Name", newLogin_Elninima_PnPAssistant001.this.textField.getText());
-						prop.setProperty("Password", newLogin_Elninima_PnPAssistant001.this.passwordField.getText());
+						prop.setProperty("Password", newLogin_Elninima_PnPAssistant001.this.passwordField.getText()); //TODO save password save (for online use)
 						JOptionPane.showMessageDialog(null, "New Login succesfully created");
+						prop.store(output, null);
+					} catch (final IOException io2)
+					{
+						io2.printStackTrace();
+					} finally
+					{
+						if (output != null)
+							try
+							{
+								output.close();
+							} catch (final IOException e2)
+							{
+								e2.printStackTrace();
+							}
+						
 					}
-					else
-						JOptionPane.showMessageDialog(null, "Passwords not equal");
-					
-					// save properties to project root folder
-					prop.store(output, null);
-					
-				} catch (final IOException io)
-				{
-					io.printStackTrace();
-				} finally
-				{
-					if (output != null)
-						try
-						{
-							output.close();
-						} catch (final IOException e2)
-						{
-							e2.printStackTrace();
-						}
-					
-				}
+				else
+					JOptionPane.showMessageDialog(null, "Passwords not equal");
+				
+				// save properties to project root folder
+				
 			}
 		});
 		this.contentPane.add(btnSubmit, "cell 0 6");

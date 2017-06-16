@@ -5,7 +5,13 @@ This ReadMe fill is mend for a short overview of the current work. Please keep t
 
 (Mark TODOs also in the Code with "//TODO" and added description)
 
-Done:
+#General Infos:
+The config.properties file will be used later again. At the moment the login file will be saved in the project folder
+with the name:
+	"Username"config.properties
+"Username" will be entered with the first run of the program.
+
+#Done:
 -Bare Bone off the Main Class
 	-start screen Layout (no Design)
 	-link to Login Screen
@@ -15,7 +21,7 @@ Done:
 	
 	
 	
-TODO:
+#TODO:
 (for reference see WhatsApp or Images that will soon be uploaded)
 -Load Data/Create new Game window
 -in game window

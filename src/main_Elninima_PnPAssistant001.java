@@ -1,10 +1,15 @@
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -15,8 +20,10 @@ public class main_Elninima_PnPAssistant001
 {
 	
 	private JFrame frame;
-	private JTextField textField;
-	private JPasswordField passwordField;
+	private JTextField UsernameTextField;
+	final Properties prop = new Properties();
+	InputStream input = null;
+	private JPasswordField PasswordField;
 	
 	/**
 	 * Launch the application.
@@ -57,7 +64,7 @@ public class main_Elninima_PnPAssistant001
 		this.frame = new JFrame();
 		this.frame.setBounds(100, 100, 641, 474);
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.frame.getContentPane().setLayout(new MigLayout("", "[][grow][grow]", "[][][][][][][][][][][]"));
+		this.frame.getContentPane().setLayout(new MigLayout("", "[grow][grow][grow]", "[][][][][][][][][][][]"));
 		
 		final JLabel lblElninimaPpassistant = new JLabel("Elninima P&P-Assistant");
 		this.frame.getContentPane().add(lblElninimaPpassistant, "cell 0 1");
@@ -80,29 +87,54 @@ public class main_Elninima_PnPAssistant001
 		final JLabel lblEnterUsernameAnd = new JLabel("usernameAndPasswordText");
 		this.frame.getContentPane().add(lblEnterUsernameAnd, "cell 0 5");
 		
-		this.textField = new JTextField();
-		this.frame.getContentPane().add(this.textField, "cell 0 6,growx");
-		this.textField.setColumns(10);
+		this.UsernameTextField = new JTextField();
+		this.frame.getContentPane().add(this.UsernameTextField, "cell 0 6,growx");
+		this.UsernameTextField.setColumns(10);
 		
-		final JButton btnLoadData = new JButton("Login");
-		btnLoadData.addActionListener(new ActionListener()
+		final JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener()
 		{
 			@Override
 			public void actionPerformed(final ActionEvent e)
 			{
-				//TODO AfterLoginWelcom frame -> new Game/load Game -> In Game frame use MigLayout for Login
+				try
+				{
+					main_Elninima_PnPAssistant001.this.input = new FileInputStream(main_Elninima_PnPAssistant001.this.UsernameTextField.getText() + "_config.properties");
+					main_Elninima_PnPAssistant001.this.prop.load(main_Elninima_PnPAssistant001.this.input);
+					if (main_Elninima_PnPAssistant001.this.prop.getProperty("Password") == String.valueOf(main_Elninima_PnPAssistant001.this.PasswordField.getPassword()))
+					{
+						//TODO AfterLoginWelcom frame -> new Game/load Game -> In Game frame use MigLayout for Login
+						JOptionPane.showMessageDialog(null, "Login succesfull");
+						JOptionPane.showMessageDialog(null, "Placeholder for ingame window");
+					}
+					else
+						JOptionPane.showMessageDialog(null, "Wrong Password");
+				} catch (final IOException error3)
+				{
+					error3.printStackTrace();
+				} finally
+				{
+					if (main_Elninima_PnPAssistant001.this.input != null)
+						try
+						{
+							main_Elninima_PnPAssistant001.this.input.close();
+						} catch (final IOException error4)
+						{
+							error4.printStackTrace();
+						}
+				}
 			}
 		});
 		
 		final JLabel lblUsername = new JLabel("Username");
 		this.frame.getContentPane().add(lblUsername, "cell 1 6");
 		
-		this.passwordField = new JPasswordField();
-		this.frame.getContentPane().add(this.passwordField, "cell 0 7,growx");
+		this.PasswordField = new JPasswordField();
+		this.frame.getContentPane().add(this.PasswordField, "cell 0 7,growx");
 		
 		final JLabel lblPassword = new JLabel("Password");
 		this.frame.getContentPane().add(lblPassword, "cell 1 7");
-		this.frame.getContentPane().add(btnLoadData, "cell 0 8");
+		this.frame.getContentPane().add(btnLogin, "cell 0 8");
 	}
 	
 }
