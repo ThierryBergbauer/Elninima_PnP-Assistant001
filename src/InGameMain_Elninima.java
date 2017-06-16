@@ -39,6 +39,8 @@ public class InGameMain_Elninima extends JFrame
 	 */
 	public InGameMain_Elninima()
 	{
+		/* Here follows the main screen, with all functions and windows*/
+		//TODO MainInGame Window
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setBounds(100, 100, 450, 300);
 		this.contentPane = new JPanel();
