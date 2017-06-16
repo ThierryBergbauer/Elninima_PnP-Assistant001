@@ -26,6 +26,11 @@ public class newLogin_Elninima_PnPAssistant001 extends JFrame
 	private final JPasswordField passwordField;
 	private final JPasswordField passwordField_1;
 	
+	public void CloseFrame()
+	{
+		super.dispose();
+	}
+	
 	/**
 	 * Launch the application.
 	 */
@@ -53,7 +58,8 @@ public class newLogin_Elninima_PnPAssistant001 extends JFrame
 	 */
 	public newLogin_Elninima_PnPAssistant001()
 	{
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setBounds(100, 100, 450, 300);
 		this.contentPane = new JPanel();
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -109,6 +115,8 @@ public class newLogin_Elninima_PnPAssistant001 extends JFrame
 						prop.setProperty("Password", newLogin_Elninima_PnPAssistant001.this.passwordField.getText()); //TODO save password save (for online use)
 						JOptionPane.showMessageDialog(null, "New Login succesfully created");
 						prop.store(output, null);
+						newLogin_Elninima_PnPAssistant001.this.CloseFrame();
+						
 					} catch (final IOException io2)
 					{
 						io2.printStackTrace();
