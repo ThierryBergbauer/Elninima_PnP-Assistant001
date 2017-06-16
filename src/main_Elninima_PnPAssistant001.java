@@ -90,7 +90,7 @@ public class main_Elninima_PnPAssistant001
 			@Override
 			public void actionPerformed(final ActionEvent e)
 			{
-				//TODO AfterLoginWelcom frame -> new Game/load Game -> In Game frame
+				//TODO AfterLoginWelcom frame -> new Game/load Game -> In Game frame use MigLayout for Login
 			}
 		});
 		
