@@ -105,7 +105,8 @@ public class main_Elninima_PnPAssistant001
 					{
 						//TODO AfterLoginWelcom frame -> new Game/load Game -> In Game frame use MigLayout for Login
 						JOptionPane.showMessageDialog(null, "Login succesfull");
-						JOptionPane.showMessageDialog(null, "Placeholder for ingame window");
+						final InGameMain_Elninima inGameFrame = new InGameMain_Elninima();
+						inGameFrame.setVisible(true);
 					}
 					else
 						JOptionPane.showMessageDialog(null, "Wrong Password");
