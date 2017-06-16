@@ -101,7 +101,7 @@ public class main_Elninima_PnPAssistant001
 				{
 					main_Elninima_PnPAssistant001.this.input = new FileInputStream(main_Elninima_PnPAssistant001.this.UsernameTextField.getText() + "_config.properties");
 					main_Elninima_PnPAssistant001.this.prop.load(main_Elninima_PnPAssistant001.this.input);
-					if (main_Elninima_PnPAssistant001.this.prop.getProperty("Password") == String.valueOf(main_Elninima_PnPAssistant001.this.PasswordField.getPassword()))
+					if (main_Elninima_PnPAssistant001.this.prop.getProperty("Password").equals(new String(main_Elninima_PnPAssistant001.this.PasswordField.getPassword())))
 					{
 						//TODO AfterLoginWelcom frame -> new Game/load Game -> In Game frame use MigLayout for Login
 						JOptionPane.showMessageDialog(null, "Login succesfull");
