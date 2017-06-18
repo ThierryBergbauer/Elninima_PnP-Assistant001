@@ -1,9 +1,9 @@
 # Elninima_PnP-Assistant001
 Hi Guys
 
-This ReadMe fill is mend for a short overview of the current work. Please keep track off all the updates in this file.
+This ReadMe fill is meant for a short overview of the current work. Please keep track off all the updates in this file.
 
-(Mark TODOs also in the Code with "//TODO" and added description)
+(Mark TODOs also in the Code with "//TODO" and add description)
 
 #General Infos:
 The config.properties file will be used later again. At the moment the login file will be saved in the project folder
