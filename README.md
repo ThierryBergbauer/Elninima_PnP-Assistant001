@@ -1,7 +1,7 @@
 # Elninima_PnP-Assistant001
 Hi Guys
 
-This ReadMe fill is mend for a short overview of the current work. Please keep track off all the updates in this file.
+This ReadMe fill is meant for a short overview of the current work. Please keep track off all the updates in this file.
 
 (Mark TODOs also in the Code with "//TODO" and add description)
 
