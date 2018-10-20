@@ -135,7 +135,11 @@ public class main_Elninima_PnPAssistant001
 		
 		final JLabel lblPassword = new JLabel("Password");
 		this.frame.getContentPane().add(lblPassword, "cell 1 7");
-		this.frame.getContentPane().add(btnLogin, "cell 0 8");
+		this.frame.getContentPane().add(btnLogin, "flowx,cell 0 8");
+		
+		JButton btnCancel_1 = new JButton("Cancel");
+		frame.getContentPane().add(btnCancel_1, "cell 0 8");
+		btnCancel_1.addActionListener(e -> System.exit(0));
 	}
 	
 }

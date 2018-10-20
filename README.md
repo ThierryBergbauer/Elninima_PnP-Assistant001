@@ -35,3 +35,6 @@ with the name:
 -Different authorizations in game (admin, gamemaster, player, spectator)
 -Window Design
 	-Most important: We need to fix a overall Design and color scheme 
+
+#starting eclipse for dumdums
+-get eclipse 4.7.2. it solves the need to manually make eclipse accept the 1.8 compiler.
