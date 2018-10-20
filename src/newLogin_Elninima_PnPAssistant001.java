@@ -139,7 +139,11 @@ public class newLogin_Elninima_PnPAssistant001 extends JFrame
 				
 			}
 		});
-		this.contentPane.add(btnSubmit, "cell 0 6");
+		this.contentPane.add(btnSubmit, "flowx,cell 0 6");
+		
+		JButton btnCancel = new JButton("Cancel");
+		contentPane.add(btnCancel, "cell 0 6");
+		btnCancel.addActionListener(e -> this.dispose());
 	}
 	
 }
